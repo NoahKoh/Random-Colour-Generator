@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Random Color Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="w-layout-blockcontainer container-2 w-container">
+       <div class="div-block-4">
+          <img src="RCG_Logo.png" loading="lazy" sizes="50px" alt="Logo" class="image"/>
+          <h1 class="heading">Random Colour Generator</h1>
+       </div>
+       <div class="div-block-3">
+          <div class="div-block-2">
+             <h2 class="text-block-2">Colour Code</h2>
+          </div>
+       </div>
+       <div class="div-block">
+          <a href="#" id ="generate-button"class="button w-button">Generate</a>
+          <p class="paragraph">By Noah Koh</p>
+       </div>
+    </div>
+    <script>
+        const generateButton = document.getElementById('generate-button');
+
+        function generateRandomColor() {
+            const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            return randomColor;
+        }
+
+        function handleGenerateClick() {
+            const divBlock3 = document.querySelector('.div-block-3');
+            const randomColorCode = generateRandomColor();
+            divBlock3.style.backgroundColor = randomColorCode;
+            const colorCodeElement = document.querySelector('.text-block-2');
+            colorCodeElement.textContent = `Color Code: ${randomColorCode}`;
+            colorCodeElement.style.color = randomColorCode;
+        }
+        generateButton.addEventListener('click', handleGenerateClick);
+    </script>
+ </body>
+</html>
